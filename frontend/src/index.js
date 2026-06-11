@@ -7,10 +7,13 @@ import store from "./store";
 import { ToastContainer ,toast,Slide} from "react-toastify";
 
 import 'react-toastify/dist/ReactToastify.css';
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
  <Provider store={store}>
      <HelmetProvider> 
+      
     <App />
         <ToastContainer
             position="bottom-center"
@@ -24,6 +27,7 @@ root.render(
             pauseOnHover
         
           />
+      
      </HelmetProvider>
 </Provider>
 

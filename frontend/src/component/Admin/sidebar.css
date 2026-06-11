@@ -1,0 +1,102 @@
+.sidebar {
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  padding: 4rem 0;
+  width: 250px;
+  min-height: 100vh;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar > a:first-child {
+  padding: 0;
+}
+
+.sidebar > a > img {
+  width: 100%;
+  transition: all 0.5s;
+}
+
+.sidebar > a > img:hover {
+  filter: drop-shadow(0 0 10px tomato);
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.493);
+  font: 200 1rem "Roboto";
+  padding: 2rem;
+  transition: all 0.5s;
+}
+
+.sidebar a:hover {
+  color: tomato;
+  transform: scale(1.1);
+}
+
+.sidebar a > p {
+  display: flex;
+  align-items: center;
+}
+
+.sidebar a > p > svg {
+  margin-right: 0.5rem;
+}
+
+/* Collapsible Section Custom Styling */
+.collapsible-section {
+  margin: 1rem 2rem;
+}
+
+.collapsible-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font: 200 1rem "Roboto";
+  color: rgba(0, 0, 0, 0.493);
+  transition: all 0.5s;
+}
+
+.collapsible-header:hover {
+  color: tomato;
+  transform: scale(1.05);
+}
+
+.collapsible-header svg:first-child {
+  margin-right: 0.5rem;
+}
+
+.collapsible-content {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.collapsible-content p {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0;
+  color: rgba(0, 0, 0, 0.493);
+  font: 200 0.95rem "Roboto";
+  transition: all 0.5s;
+}
+
+.collapsible-content p:hover {
+  color: tomato;
+  transform: scale(1.05);
+}
+
+.collapsible-content p svg {
+  margin-right: 0.5rem;
+}
+
+/* Override MUI Typography if used anywhere else */
+.MuiTypography-root {
+  background-color: #fff !important;
+}
+
+
+

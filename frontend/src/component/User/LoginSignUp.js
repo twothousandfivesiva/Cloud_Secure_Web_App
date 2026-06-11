@@ -8,13 +8,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, login ,register} from "../../actions/userAction";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
 
-const LoginSignUp = ({history}) => {
+const LoginSignUp = () => {
   
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
+    const location = useLocation();
     const { error, loading, isAuthenticated } = useSelector(
     (state) => state.user
   );
@@ -36,6 +36,17 @@ const [user, setUser] = useState({
     e.preventDefault();
     dispatch(login(loginEmail, loginPassword));
   };
+  const registerSubmit = (e) => {
+    e.preventDefault();
+
+    const myForm = new FormData();
+
+    myForm.set("name", name);
+    myForm.set("email", email);
+    myForm.set("password", password);
+    myForm.set("avatar", avatar);
+      dispatch(register(myForm));
+  };
    const registerDataChange = (e) => {
     if (e.target.name === "avatar") {
       const reader = new FileReader();
@@ -52,28 +63,18 @@ const [user, setUser] = useState({
       setUser({ ...user, [e.target.name]: e.target.value });
     }
   };
-
-   const registerSubmit = (e) => {
-    e.preventDefault();
-
-    const myForm = new FormData();
-
-    myForm.set("name", name);
-    myForm.set("email", email);
-    myForm.set("password", password);
-    myForm.set("avatar", avatar);
-      dispatch(register(myForm));
-  };
+const redirect =location.state?.from?.pathname || "/account";
+   
     useEffect(() => {
     if (error) {
     toast.error(error);
     dispatch(clearErrors());
   }
  if (isAuthenticated) {
-     navigate("/account");
+     navigate(redirect);
     }
     
-  }, [dispatch, error, toast,navigate,isAuthenticated]);
+  }, [dispatch, error, toast,navigate,isAuthenticated,redirect]);
    const switchTabs = (e, tab) => {
     if (tab === "login") {
       switcherTab.current.classList.add("shiftToNeutral");

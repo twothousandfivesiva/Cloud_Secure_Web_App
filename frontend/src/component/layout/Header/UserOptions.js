@@ -13,16 +13,33 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { logout } from "../../../actions/userAction";
+import {useEffect} from 'react';
 const UserOptions = ({user}) => {
     // console.log("User in UserOptions:", user)
+     const { cartItems } = useSelector((state) => state.cart);
+      const { isAuthenticated } = useSelector((state) => state.user);
       const [open, setOpen] = useState(false);
       const navigate = useNavigate();
       const dispatch = useDispatch();
-     
+      useEffect(() => {
+    if (!isAuthenticated) {
+      toast.success("Logout Successfully");
+    }
+  }, [isAuthenticated]);
         const options = [
     { icon: <ListAltIcon />, name: "Orders", func: orders },
     { icon: <PersonIcon />, name: "Profile", func: account },
+    {
+      icon: (
+        <ShoppingCartIcon
+          style={{ color: cartItems.length > 0 ? "tomato" : "unset" }}
+        />
+      ),
+      name: `Cart(${cartItems.length})`,
+      func: cart,
+    },
      { icon: <ExitToAppIcon />, name: "Logout", func: logoutUser },
+    
   ];
    if (user.role === "admin") {
     options.unshift({
@@ -32,13 +49,16 @@ const UserOptions = ({user}) => {
     });
   }
     function dashboard() {
-  navigate("/dashboard");
+  navigate("/admin/dashboard");
 }
 function orders() {
   navigate("/orders");
 }
 function account() {
   navigate("/account");
+}
+function cart() {
+  navigate("/cart");
 }
 function logoutUser  ()  {
     dispatch(logout());

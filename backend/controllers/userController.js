@@ -73,9 +73,10 @@ exports.forgotPassword = catchAssyncErrors(async (req, res, next) => {
 
   await user.save({ validateBeforeSave: false });
 
-  const resetPasswordUrl = `${req.protocol}://${req.get(
-    "host"
-  )}/api/v1/password/reset/${resetToken}`;
+  // const resetPasswordUrl = `${req.protocol}://${req.get(
+  //   "host"
+  // )}/api/v1/password/reset/${resetToken}`;
+  const resetPasswordUrl = `http://localhost:3000/password/reset/${resetToken}`;
 
   const message = `Your password reset token is :- \n\n ${resetPasswordUrl} \n\nIf you have not requested this email then, please ignore it.`;
 
@@ -239,7 +240,12 @@ exports.updateUserRole = catchAssyncErrors(async (req, res, next) => {
     runValidators: true,
     useFindAndModify: false,
   });
-
+if (!user) {
+  return res.status(404).json({
+    success: false,
+    message: "User not found",
+  });
+}
   res.status(200).json({
     success: true,
   });
@@ -253,6 +259,9 @@ exports.deleteUser = catchAssyncErrors(async (req, res, next) => {
       new ErrorHandler(`User does not exist with Id: ${req.params.id}`, 400)
     );
   }
+  const imageId = user.avatar.public_id;
+
+  await cloudinary.v2.uploader.destroy(imageId);
 
 
   await user.deleteOne();

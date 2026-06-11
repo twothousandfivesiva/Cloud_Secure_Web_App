@@ -1,0 +1,126 @@
+.usersListContainer {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-left: 1px solid rgba(0, 0, 0, 0.158);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#usersListHeading {
+  font: 400 2rem "Roboto";
+  padding: 0.5vmax;
+  margin: 2rem auto 1rem;
+  color: rgba(0, 0, 0, 0.637);
+  text-align: center;
+}
+
+/* Table container with scroll */
+.usersTableWrapper {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 2rem 1rem;
+}
+
+.usersTable {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+   table-layout: fixed;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Header styling */
+.usersTable th {
+  background-color: tomato;
+  color: white;
+  font-weight: 500;
+  padding: 12px;
+  text-align: left;
+  font-size: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+/* Cell styling */
+.usersTable td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* Hover */
+.usersTable tr:hover td {
+  background-color: #f9f9f9;
+}
+
+/* Action buttons */
+.usersTable a,
+.usersTable button {
+  margin-right: 8px;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.527);
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+}
+
+.usersTable a:hover {
+  color: tomato;
+}
+
+.usersTable button:hover {
+  color: red;
+}
+
+/* Role coloring */
+.greenColor {
+  color: green;
+  font-weight: 500;
+}
+
+.redColor {
+  color: red;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+  .usersTableWrapper {
+    padding: 0 0.5rem 1rem;
+  }
+
+  .usersTable {
+    table-layout: fixed;
+    width: 100%;
+    word-wrap: break-word;
+  }
+
+  .usersTable th,
+  .usersTable td {
+    font-size: 0.7rem;
+    padding: 6px;
+    word-break: break-word;
+  }
+
+  .usersTable a,
+  .usersTable button {
+    font-size: 1rem;
+    margin-right: 4px;
+  }
+
+  #usersListHeading {
+    font-size: 1.3rem;
+    margin: 1rem 0;
+  }
+  /* .usersTable a,
+  .usersTable button {
+    font-size: 1rem;
+    margin-right: 6px;
+  } */
+}

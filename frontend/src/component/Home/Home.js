@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from "react";
 import { CgMouse } from "react-icons/cg";
 import "./Home.css";
-import Product from "./ProductCard.js";
+import ProductCard from "./ProductCard.js";
 import MetaData from "../layout/MetaData.js";
 import {getProduct,clearErrors} from "../../actions/productAction";
 import { useSelector, useDispatch } from "react-redux";
@@ -32,7 +32,7 @@ const Home = () => {
        <Fragment>
           <MetaData title="GRAB 'N GO" />
           <div className="banner">
-            <p>Welcome to Ecommerce</p>
+            <p>Welcome to Grab 'N Go</p>
             <h1>FIND AMAZING PRODUCTS BELOW</h1>
              <a href="#container">
               <button>
@@ -44,7 +44,7 @@ const Home = () => {
            <div className="container" id="container">
          {products &&
               products.map((product) => (
-                <Product key={product._id} product={product} />
+                <ProductCard key={product._id} product={product} />
               ))}
            </div>
       

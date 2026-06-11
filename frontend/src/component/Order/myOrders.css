@@ -1,0 +1,93 @@
+.myOrdersPage {
+  padding: 40px 20px;
+  background-color: white;
+  min-height: 100vh;
+  font-family: 'Roboto', 'Droid Sans', 'Chilanka', sans-serif;
+}
+
+#myOrdersHeading {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  font-weight: 600;
+  color: #2c3e50;
+  font-family: 'Chilanka', cursive;
+}
+
+.filterBar {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.filterBar input,
+.filterBar select {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.tableContainer {
+  overflow-x: auto;
+  background-color: #ffffff;
+  padding: 20px 25px;
+  border-radius: 12px;
+  margin: 0 auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+}
+
+.ordersTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ordersTable thead th {
+  background-color: tomato;
+  color: white;
+  padding: 14px 16px;
+  font-size: 15px;
+  text-align: left;
+  font-weight: 500;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.ordersTable tbody tr {
+  background-color: #fdfdfd;
+  transition: all 0.2s ease-in-out;
+}
+
+.ordersTable tbody tr:hover {
+  background-color: #f0f8ff;
+}
+
+.ordersTable td {
+  padding: 14px 16px;
+  color: #333;
+  font-size: 14px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.greenColor {
+  color: green;
+  font-weight: bold;
+}
+
+.redColor {
+  color: tomato;
+  font-weight: bold;
+}
+
+.ordersTable td a {
+  color: tomato;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.ordersTable td a:hover {
+  color: crimson;
+}

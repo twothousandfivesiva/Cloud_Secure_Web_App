@@ -1,0 +1,110 @@
+.productListContainer {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-left: 1px solid rgba(0, 0, 0, 0.158);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#productListHeading {
+  font: 400 2rem "Roboto";
+  padding: 0.5vmax;
+  margin: 2rem auto;
+  color: rgba(0, 0, 0, 0.637);
+  text-align: center;
+}
+
+.productListTableWrapper {
+  overflow-y: auto;
+  max-height: calc(100vh - 150px);
+  padding: 0 2rem;
+}
+
+.productListTable {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  font-family: "Roboto", sans-serif;
+}
+
+.productListTable th,
+.productListTable td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.678);
+}
+
+.productListTable th {
+  background-color: tomato;
+  color: white;
+}
+
+.productListTable a,
+.productListTable button {
+  margin-right: 10px;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.527);
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+}
+
+.productListTable a:hover {
+  color: tomato;
+}
+
+.productListTable button:hover {
+  color: rgb(236, 30, 30);
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+  gap: 5px;
+}
+
+.pagination button {
+  padding: 8px 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: 1px solid tomato;
+  background-color: white;
+  color: tomato;
+  transition: 0.3s;
+  border-radius: 3px;
+}
+
+.pagination button:hover {
+  background-color: tomato;
+  color: white;
+}
+
+.pagination button.active {
+  background-color:tomato;
+  color: white;
+  font-weight: bold;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media screen and (max-width: 600px) {
+  .productListTable th,
+  .productListTable td {
+    font-size: 0.8rem;
+    padding: 8px;
+  }
+
+  #productListHeading {
+    font-size: 1.5rem;
+    margin: 1rem;
+  }
+  
+}
