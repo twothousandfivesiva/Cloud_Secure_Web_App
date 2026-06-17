@@ -5,9 +5,23 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 const path = require("path");
+const helmet = require("helmet");
+const rateLimit = require("express-rate-limit");
 const dotenv=require("dotenv");
 dotenv.config({path:"backend/config/config.env"});
 app.use(express.json());
+app.use(helmet());
+
+// Rate Limiting
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 100,
+  message: "Too many requests from this IP, please try again later."
+});
+
+app.use(limiter);
+
+
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(fileUpload());

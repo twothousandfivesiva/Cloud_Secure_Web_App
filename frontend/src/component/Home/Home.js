@@ -24,6 +24,7 @@ const Home = () => {
 
    
   }, [dispatch,error,toast]);
+  console.log("Redux Products:", products);
     return (
    <Fragment>
     {loading?(

@@ -15,7 +15,11 @@ const ProductCard = ({product }) => {
   
 {/* 
   <img src={product?.images?.[0]?.url || "/default.jpg"} /> */}
-       <img src={product.images[0].url} alt={product.name} />
+       {/* <img src={product.images[0].url} alt={product.name} /> */}
+       <img
+  src={product?.images?.[0]?.url || "/default.jpg"}
+  alt={product.name}
+/>
            <p>{product.name}</p>
               <div>
         <Rating {...options} /><span> ({product.numOfReviews} Reviews)</span></div>
