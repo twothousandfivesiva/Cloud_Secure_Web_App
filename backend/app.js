@@ -34,8 +34,16 @@ app.use("/api/v1", product);
 app.use("/api/v1", user);
 app.use("/api/v1", order);
 app.use("/api/v1", payment);
+
 app.get("/", (req, res) => {
     res.send("Welcome to Buy and Try API!");
+});
+app.get("/health", (req, res) => {
+    res.status(200).json({
+        status: "UP",
+        service: "Buy and Try API",
+        timestamp: new Date().toISOString()
+    });
 });
 //middleware for errors
 app.use(errorMiddleware);
