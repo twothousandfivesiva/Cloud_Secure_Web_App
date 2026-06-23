@@ -37,6 +37,7 @@ The project uses a custom AWS VPC with public and private subnets. Application c
 4. Run:
 
 docker-compose up -d
+
 5. Access the application through the configured endpoint.
 
 ## CI/CD Pipeline
